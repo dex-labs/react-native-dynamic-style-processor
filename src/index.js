@@ -30,9 +30,9 @@ function bublUnitsTransform(obj, matchObject) {
 
         Object.keys(values).map(prop => {
 
-            const value = values[prop];
+            let value = values[prop];
 
-            if (typeof prop !== "number") return prop;
+            if (typeof value !== "number") return prop;
 
             if (sacleProps.includes(prop)) {
 
@@ -42,25 +42,25 @@ function bublUnitsTransform(obj, matchObject) {
 
                 let factor = fontProps.includes(prop) ? 0.3 : 0.5;
 
-                value = value.toString().split(".", 3);
+                // value = value.toString().split(".", 3);
 
-                if (value.length === 3) {
+                // if (value.length === 3) {
 
-                    factor = parseFloat("0." + value[2]);
+                //     factor = parseFloat("0." + value[2]);
 
-                    value = parseFloat(value[0] + "." + value[1]);
+                //     value = parseFloat(value[0] + "." + value[1]);
 
-                } else if (value.length === 3) {
+                // } else if (value.length === 3) {
 
-                    factor = parseFloat("0." + value[1]);
+                //     factor = parseFloat("0." + value[1]);
 
-                    value = parseFloat(value[0]);
+                //     value = parseFloat(value[0]);
 
-                } else {
+                // } else {
 
-                    value = parseFloat(value[0]);
+                //     value = parseFloat(value[0]);
 
-                }
+                // }
 
                 obj[key][prop] = moderateScale(value, factor);
 
@@ -71,9 +71,6 @@ function bublUnitsTransform(obj, matchObject) {
         });
 
     })
-
-
-    console.log(obj);
 
     return obj;
 
