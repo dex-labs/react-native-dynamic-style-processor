@@ -19,24 +19,31 @@ function bublUnitsTransform(obj, matchObject) {
 
     if (!obj) return obj;
 
+    const styles = {};
+
     const moderateProps = ["paddingLeft", "paddingRight", "paddingTop", "paddingBottom", "paddingVertical", "paddingHorizontal", "marginLeft", "marginRight", "marginTop", "marginBottom", "marginVertical", "marginHorizontal"];
     const sacleProps = ["width", "maxWidth", "height", "maxHeight", "left", "right", "top", "bottom"];
     // const verticalProps = ["height", "maxHeight"];
-    const fontProps = []; //"fontSize"
+    const fontProps = ["fontSize"];
 
     Object.keys(obj).map(key => {
 
         const values = obj[key];
 
+        styles[key] = {};
+
         Object.keys(values).map(prop => {
 
             let value = values[prop];
 
-            if (typeof value !== "number") return prop;
+            if (typeof value !== "number") {
+                styles[key][prop] = value;
+                return;
+            }
 
             if (sacleProps.includes(prop)) {
 
-                obj[key][prop] = scale(value);
+                styles[key][prop] = scale(value);
 
             } else if (fontProps.includes(prop) || moderateProps.includes(prop)) {
 
@@ -62,7 +69,11 @@ function bublUnitsTransform(obj, matchObject) {
 
                 // }
 
-                obj[key][prop] = moderateScale(value, factor);
+                styles[key][prop] = moderateScale(value, factor);
+
+            } else {
+
+                styles[key][prop] = value;
 
             }
 
@@ -72,7 +83,7 @@ function bublUnitsTransform(obj, matchObject) {
 
     })
 
-    return obj;
+    return styles;
 
 }
 
@@ -83,7 +94,7 @@ function viewportUnitsTransform(obj, matchObject) {
         return obj;
     }
 
-    return __DEV__ ? transform(obj, matchObject) : transform(omitMemoized(obj, "__viewportUnits"), matchObject);
+    return transform(omitMemoized(obj, "__viewportUnits"), matchObject);
 
 }
 
@@ -101,9 +112,9 @@ export function process(obj) {
 
     obj = mediaQueriesTransform(obj, matchObject);
 
-    obj = viewportUnitsTransform(obj, matchObject);
-
     obj = bublUnitsTransform(obj, matchObject);
+
+    obj = viewportUnitsTransform(obj, matchObject);
 
     return obj;
 
