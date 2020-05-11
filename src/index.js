@@ -82,7 +82,9 @@ function viewportUnitsTransform(obj, matchObject) {
     if (!hasViewportUnits) {
         return obj;
     }
-    return transform(omitMemoized(obj, "__viewportUnits"), matchObject);
+
+    return __DEV__ ? transform(obj, matchObject) : transform(omitMemoized(obj, "__viewportUnits"), matchObject);
+
 }
 
 function mediaQueriesTransform(obj, matchObject) {
