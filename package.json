@@ -1,6 +1,6 @@
 {
     "name": "react-native-dynamic-style-processor",
-    "version": "0.21.5",
+    "version": "0.21.6",
     "description": "React Native dynamic style processor combines multiple runtime style transformations together.",
     "main": "src/index.js",
     "bugs": {
@@ -29,16 +29,7 @@
         "css",
         "transform"
     ],
-    "scripts": {
-        "benchmark": "yarn build && node benchmark.js",
-        "size": "npm run build && size-limit",
-        "prepublish": "npm run build",
-        "prebuild": "rimraf dist",
-        "build": "babel src --out-dir dist --ignore src/__tests__,src/__mocks__",
-        "precommit": "lint-staged",
-        "release": "npmpub",
-        "test": "echo yup"
-    },
+    "scripts": {},
     "dependencies": {
         "css-viewport-units-transform": "^0.10.2",
         "micro-memoize": "^2.0.3",

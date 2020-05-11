@@ -22,7 +22,7 @@ function bublUnitsTransform(obj, matchObject) {
     const moderateProps = ["paddingLeft", "paddingRight", "paddingTop", "paddingBottom", "paddingVertical", "paddingHorizontal", "marginLeft", "marginRight", "marginTop", "marginBottom", "marginVertical", "marginHorizontal"];
     const sacleProps = ["width", "maxWidth", "height", "maxHeight", "left", "right", "top", "bottom"];
     // const verticalProps = ["height", "maxHeight"];
-    const fontProps = ["fontSize"];
+    const fontProps = []; //"fontSize"
 
     Object.keys(obj).map(key => {
 
