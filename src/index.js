@@ -21,8 +21,17 @@ function bublUnitsTransform(obj, matchObject) {
 
     const styles = {};
 
-    const moderateProps = ["paddingLeft", "paddingRight", "paddingTop", "paddingBottom", "paddingVertical", "paddingHorizontal", "marginLeft", "marginRight", "marginTop", "marginBottom", "marginVertical", "marginHorizontal"];
-    const sacleProps = ["width", "maxWidth", "height", "maxHeight", "left", "right", "top", "bottom"];
+    const moderateProps = [
+        "paddingLeft", "paddingRight", "paddingTop", "paddingBottom", "paddingVertical", "paddingHorizontal",
+        "marginLeft", "marginRight", "marginTop", "marginBottom", "marginVertical", "marginHorizontal",
+        "borderWidth", "borderWidthTop", "borderWidthBottom", "borderWidthLeft", "borderWidthRight",
+    ];
+    const sacleProps = [
+        "width", "maxWidth",
+        "height", "maxHeight",
+        "left", "right", "top", "bottom",
+        "borderRadius", "borderRadiusTop", "borderRadiusBottom", "borderRadiusLeft", "borderRadiusRight",
+    ];
     // const verticalProps = ["height", "maxHeight"];
     const fontProps = ["fontSize"];
 
