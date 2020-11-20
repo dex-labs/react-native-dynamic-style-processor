@@ -33,7 +33,7 @@ function bublUnitsTransform(obj, matchObject) {
         "borderRadius", "borderRadiusTop", "borderRadiusBottom", "borderRadiusLeft", "borderRadiusRight",
     ];
     // const verticalProps = ["height", "maxHeight"];
-    const fontProps = ["fontSize"];
+    const fontProps = ["fontSize", "lineHeight"];
 
     Object.keys(obj).map(key => {
 
