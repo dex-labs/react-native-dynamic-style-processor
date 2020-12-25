@@ -43,7 +43,7 @@ function bublUnitsTransform(obj, matchObject) {
 
         Object.keys(values).map(prop => {
 
-            let value = values[prop];
+            let value = values[prop] || {};
 
             if (typeof value !== "number") {
                 styles[key][prop] = value;
